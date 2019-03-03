@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Movie List</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+<!-- <link rel="stylesheet" href="/movieList/src/main/resources/static/style.css" type="text/css" />  -->
+<!-- <script src="main.js"></script> -->
+<style>
+body {
+	background-color: lightblue;
+}
+
+h1 {
+	color: white;
+}
+
+p {
+	color: red;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h2>Add a movie</h2>
+		<form class="user-form" method="POST">
+			<div class="row">
+				<div class="col-sm-1">
+					<label for="title">Title:</label>
+				</div>
+				<div class="col-sm-6">
+					<input type="text" name="title" class="form-control" placeholder="Input title of movie"></input>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-1">
+					<label for="year">Year:</label>
+				</div>
+				<div class="col-sm-2">
+					<input type="text" name="year" class="form-control" placeholder="Enter year"></input>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-1">
+					<label for="director">Director:</label>
+				</div>
+				<div class="col-sm-6">
+					<input type="text" name="director" class="form-control" placeholder="Enter name of director"></input>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-1">
+					<label for="star">Starring:</label>
+				</div>
+				<div class="col-sm-6">
+					<input type="text" name="star" class="form-control" placeholder="Enter protagonist"></input>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-1">
+					<label for="viewer">Viewer:</label>
+				</div>
+				<div class="col-sm-6">
+					<input type="text" name="viewer" class="form-control" placeholder="Enter viewer"></input>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-7">
+					<label for="description">Description:</label>
+					<textarea name="description" class="form-control" rows="3"></textarea>
+				</div>				
+			</div>
+			<button type="reset" class="btn btn-outline-success">Reset</button>
+			<button type="submit" class="btn btn-outline-primary">Submit</button>
+		</form>
+	</div>
+	
+	<div class="container">
+		<hr/>
+		<div th:unless="${#lists.isEmpty(movies)}">
+		<h2>Inserted movie</h2>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Year</th>
+					<th>Director</th>
+					<th>Starring</th>
+					<th>Viewer</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody th:each="movie : ${movies}">
+				<tr class="movieList">
+					<td th:text="${movie.title}"></td>
+					<td th:text="${movie.year}"></td>
+					<td th:text="${movie.director}"></td>
+					<td th:text="${movie.star}"></td>
+					<td th:text="${movie.viewer}"></td>
+					<td th:if="${movie.description}" th:text="${movie.description}"></td>
+				</tr>
+			</tbody>		
+		</table>		
+		</div>
+		<div th:if="${#lists.isEmpty(movies)}" class="alert alert-warning">
+			<strong>Info!</strong>There are no movies in the list
+		</div>
+	</div>
+	
+	
+	
+</body>
+</html>
