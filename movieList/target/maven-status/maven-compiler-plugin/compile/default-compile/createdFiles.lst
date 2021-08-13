@@ -1,7 +1,0 @@
-edu\microservices\springboot\movielist\model\Movie.class
-edu\microservices\springboot\movielist\service\MovieServiceImpl.class
-edu\microservices\springboot\movielist\controller\MovieListRestController.class
-edu\microservices\springboot\movielist\controller\MovieListWebController.class
-edu\microservices\springboot\movielist\MovieListApplication.class
-edu\microservices\springboot\movielist\repository\MovieListRepository.class
-edu\microservices\springboot\movielist\service\MovieService.class
